@@ -13,6 +13,8 @@
   "author": "Theodore Pochart",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "twilio": "^3.69.0"
   }
 }
