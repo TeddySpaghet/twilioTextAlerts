@@ -2,7 +2,7 @@
   "name": "twiliotextalerts",
   "version": "1.0.0",
   "description": "text alerts app using twilio trial",
-  "main": "index.js",
+  "main": "send_sms.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
