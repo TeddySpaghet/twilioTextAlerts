@@ -2,7 +2,7 @@
   "name": "twiliosms",
   "version": "1.0.0",
   "description": "sms app using twilio",
-  "main": "TwilioSMS.js",
+  "main": "send_sms.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
