@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const config = require('../config');
-const twilio = require('twilio');
+require('dotenv').config();
 
+const mongoose = require('mongoose');
+const twilio = require('twilio');
 
 const OrderSchema = new mongoose.Schema({
   customerName: String,
@@ -10,16 +10,19 @@ const OrderSchema = new mongoose.Schema({
   notificationStatus: {type: String, default: 'None'},
 });
 
-OrderSchema.methods.sendSmsNotification = function(message, statusCallback) {
+OrderSchema.methods.sendSmsNotification = function(message, mediaUrl = "http://lorempixel.com/image_output/fashion-q-c-640-480-1.jpg", statusCallback) {
   if (!statusCallback) {
     throw new Error('status callback is required to send notification.');
   }
-
-  const client = twilio(config.twilioAccountSid, config.twilioAuthToken);
+  if (!mediaUrl) {
+    throw new Error('media url is required.');
+  }
+  const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
   const options = {
     to: this.customerPhoneNumber,
-    from: config.twilioPhoneNumber,
+    from: process.env.TWILIO_PHONE_NUMBER,
     body: message,
+    mediaUrl: mediaUrl,
     statusCallback: statusCallback,
   };
 

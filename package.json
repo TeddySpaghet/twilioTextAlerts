@@ -15,6 +15,7 @@
   "author": "Theodore Pochart",
   "license": "ISC",
   "dependencies": {
+    "mongoose": "^6.0.11",
     "twilio": "^3.69.0",
     "twilio-cli": "^2.31.0"
   }
